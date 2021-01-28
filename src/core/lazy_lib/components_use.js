@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-01-19 14:52:31
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-01-25 17:42:11
+ * @LastEditTime: 2021-01-28 16:30:42
  */
 /* eslint-disable */
 /**
@@ -15,6 +15,9 @@
 import Vue from 'vue';
 import {
 	ConfigProvider,
+	Dropdown,
+	List,
+	Avatar,
 	Layout,
 	Input,
 	Button,
@@ -43,6 +46,9 @@ import {
 } from 'ant-design-vue';
 
 Vue.use(ConfigProvider);
+Vue.use(Dropdown);
+Vue.use(List);
+Vue.use(Avatar);
 Vue.use(Layout);
 Vue.use(Input);
 Vue.use(Button);
