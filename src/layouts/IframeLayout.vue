@@ -1,23 +1,26 @@
 <!--
- * @Description: 
+ * @Description: iframe共用组件
  * @Autor: xiukun@herry
- * @Date: 2021-01-20 15:02:36
+ * @Date: 2021-01-29 15:40:04
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-01-25 16:12:52
+ * @LastEditTime: 2021-01-29 15:52:06
 -->
-<template>
-    <div class="link-home" ref="iframeContainer">
-        <iframe ref="iframe" :src="iframeSrc" width="100%" scrolling="auto" frameborder="0"></iframe>
-    </div>
-</template>
-
 <script>
 import { TOKEN_NAME } from '@/config/index';
 export default {
-    data() {
-        return {
-            iframeSrc: '',
-        };
+    name: 'iframe-layout-jsx',
+    render() {
+        return (
+            <div class="link-home" ref="iframeContainer">
+                <iframe
+                    ref="iframe"
+                    src={this.iframeSrc}
+                    width="100%"
+                    scrolling="auto"
+                    frameborder="0"
+                ></iframe>
+            </div>
+        );
     },
     created() {
         console.log(this.$ls.get(TOKEN_NAME));
@@ -42,10 +45,9 @@ export default {
     },
 };
 </script>
-
 <style lang="less" scoped>
 .link-home {
-    /* 50= navbar  50  */
+    /* 54= navbar  54  */
     min-height: calc(100vh - 54px - 42px - 2px);
     width: 100%;
     position: relative;
