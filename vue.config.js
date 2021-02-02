@@ -3,8 +3,9 @@
  * @Autor: xiukun@herry
  * @Date: 2021-01-12 18:31:31
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-02-02 16:40:12
+ * @LastEditTime: 2021-02-02 17:53:03
  */
+const webpack = require('webpack');
 const path = require('path');
 const isProd = process.env.NODE_ENV === 'production';
 //按需加载lodash
@@ -40,7 +41,10 @@ module.exports = {
 		entry: {
 			app: ['babel-polyfill', resolve('src/main.js')],
 		},
-		
+		plugins: [
+			// 忽略moment语言包
+			new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+		],
 	},
 	chainWebpack: (config) => {
 		let iconDir = resolve('src/icons');
@@ -62,9 +66,7 @@ module.exports = {
 			config
 				.plugin('loadshReplace')
 				.use(new LodashModuleReplacementPlugin());
-        }
-        // 忽略moment语言包
-        config.IgnorePlugin(/^\.\/locale$/, /moment$/),
+		}
 	},
 	pluginOptions: {
 		'style-resources-loader': {
