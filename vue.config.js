@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-01-12 18:31:31
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-01-25 15:29:26
+ * @LastEditTime: 2021-02-02 16:40:12
  */
 const path = require('path');
 const isProd = process.env.NODE_ENV === 'production';
@@ -40,6 +40,7 @@ module.exports = {
 		entry: {
 			app: ['babel-polyfill', resolve('src/main.js')],
 		},
+		
 	},
 	chainWebpack: (config) => {
 		let iconDir = resolve('src/icons');
@@ -61,7 +62,9 @@ module.exports = {
 			config
 				.plugin('loadshReplace')
 				.use(new LodashModuleReplacementPlugin());
-		}
+        }
+        // 忽略moment语言包
+        config.IgnorePlugin(/^\.\/locale$/, /moment$/),
 	},
 	pluginOptions: {
 		'style-resources-loader': {

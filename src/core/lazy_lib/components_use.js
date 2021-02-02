@@ -3,7 +3,7 @@
  * @Autor: xiukun@herry
  * @Date: 2021-01-19 14:52:31
  * @LastEditors: xiukun@herry
- * @LastEditTime: 2021-01-28 16:30:42
+ * @LastEditTime: 2021-02-01 15:22:18
  */
 /* eslint-disable */
 /**
@@ -27,6 +27,7 @@ import {
 	Select,
 	Card,
 	Form,
+	FormModel,
 	Row,
 	Col,
 	Modal,
@@ -58,6 +59,7 @@ Vue.use(Checkbox);
 Vue.use(Select);
 Vue.use(Card);
 Vue.use(Form);
+Vue.use(FormModel);
 Vue.use(Row);
 Vue.use(Col);
 Vue.use(Modal);

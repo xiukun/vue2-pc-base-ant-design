@@ -1,34 +1,42 @@
+<!--
+ * @Description: 
+ * @Autor: xiukun@herry
+ * @Date: 2021-01-28 15:06:08
+ * @LastEditors: xiukun@herry
+ * @LastEditTime: 2021-02-01 16:15:36
+-->
 <template>
-  <div class="router-layout">
-    <transition name="fade-transform" mode="out-in">
-      <keep-alive :exclude="excludeViews">
+    <div class="router-layout">
+        <transition name="fade-transform" mode="out-in">
+            <!-- <keep-alive :exclude="excludeViews">
         <router-view :key="key" />
-      </keep-alive>
-    </transition>
-  </div>
+      </keep-alive> -->
+            <router-view :key="key" />
+        </transition>
+    </div>
 </template>
 
 <script>
 export default {
-  name: 'RouteLayout',
-  computed: {
-    excludeViews() {
-      return this.$store.state.multiTab.excludeViews
+    name: 'RouteLayout',
+    computed: {
+        excludeViews() {
+            return this.$store.state.multiTab.excludeViews;
+        },
+        key() {
+            return this.$route.path;
+        },
     },
-    key() {
-      return this.$route.path
+    props: {
+        keepAlive: {
+            type: Boolean,
+            default: true,
+        },
     },
-  },
-  props: {
-    keepAlive: {
-      type: Boolean,
-      default: true,
+    data() {
+        return {};
     },
-  },
-  data() {
-    return {}
-  },
-  /*   render() {
+    /*   render() {
     const {
       $route: { meta },
       $store: { getters },
@@ -47,5 +55,5 @@ export default {
     }
     return this.keepAlive || getters.multiTab || meta.keepAlive ? inKeep : notKeep
   }, */
-}
+};
 </script>
